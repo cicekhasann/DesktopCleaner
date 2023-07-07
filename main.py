@@ -19,6 +19,10 @@ def organize_files_on_desktop():
             # Get file extension
             _, extension = os.path.splitext(file)
 
+            # Skip if the file doesn't have an extension
+            if not extension:
+                continue
+
             # Create folder by file's extension
             folder_path = os.path.join(desktop_path, extension[1:])
 
@@ -38,9 +42,14 @@ def organize_files_on_desktop():
     return folders
 
 
-# Organize files on the desktop
-folder_dict = organize_files_on_desktop()
+def main():
+    # Organize files on the desktop
+    folder_dict = organize_files_on_desktop()
 
-# Print folders and paths to screen
-for folder, path in folder_dict.items():
-    print(folder + ": " + path)
+    # Print folders and paths to screen
+    for folder, path in folder_dict.items():
+        print(folder + ": " + path)
+
+
+if __name__ == "__main__":
+    main()
